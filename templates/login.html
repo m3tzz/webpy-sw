@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SW Automation</title>
+    <link href="../static/css/min.css" rel="stylesheet">
+    <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/css/signup.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Switch Automation <img src="../static/img/Betfair-yellow.jpg" alt="betfair" height="50" width="100" align="right"></h3>
+      </div>
+      <div class="jumbotron">
+        <h2>Active Directory Login</h2>
+          <br>
+        <form method="post" action="/login" class="form-signin">
+        <label>Select switch:</label>
+        <select name="ip" required>
+            {% for sw in switch_info %}
+            <option value="{{sw.ip}}"> {{sw.name}} </option>
+            {% endfor %}
+          </select>
+          <br>
+          <br>
+          <label for="inputName" class="sr-only">Name</label>
+          <input type="name" name="username" id="inputName" class="form-control" placeholder="UserName" required autofocus>
+          <br>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          <br>
+        <input id="btnLogin" class="btn btn-lg btn-primary btn-block" type="submit" value="Login"/>
+      </form>
+      </div>
+      <footer align="center">
+      <b> <p> Betfair 2016 &copy; <font size="2" align="RIGHT"> Contact: <a href="mailto:ruben.barbosa@blip.pt">ruben.barbosa@blip.pt</a></font></p></b>
+      </footer>
+    </div>
+  </body>
+</html>
