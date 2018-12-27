@@ -1,11 +1,12 @@
 
 Install Flask:
-
 sudo pip install Flask
 
-How to Install Paramiko:
+Install python-ldap:
+sudo pip install python-ldap
 
-Mac OS X -->brew install paramiko
+Install Paramiko:
+sudo pip install paramiko
 
 How to Run the script:
 
