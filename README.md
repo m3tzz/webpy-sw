@@ -1,11 +1,14 @@
 
 Install Flask:
+
 sudo pip install Flask
 
 Install python-ldap:
+
 sudo pip install python-ldap
 
 Install Paramiko:
+
 sudo pip install paramiko
 
 How to Run the script:
