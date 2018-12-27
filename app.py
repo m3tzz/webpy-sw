@@ -1,9 +1,8 @@
 from flask import Flask, render_template, json, request, session, redirect
 from functools import wraps
-from flask.ext.session import Session
+from flask_session import Session
 from werkzeug import generate_password_hash, check_password_hash
-import backend_functions
-import AD
+from library import backend_functions, AD
 
 app = Flask(__name__)
 
@@ -12,7 +11,7 @@ PERMANENT_SESSION_LIFETIME = 180
 app.config.from_object(__name__)
 Session(app)
 
-switch_info = ['xx.xx.xx.xx name_sw','xx.xx.xx.xx name_sw2','xx.xx.xx.xx name_sw3']
+switch_info = ['172.26.1.1 opo-sw-leaf1','172.26.1.2 opo-sw-leaf2','172.26.1.3 opo-sw-leaf1']
 
 def isAuthed(func):
  @wraps(func)
@@ -35,9 +34,9 @@ def isAuthed(func):
 @app.route("/login", methods=["POST"])
 def login():
 
-    #if backend_functions.login(request.form["username"], request.form["password"],request.form["ip"]):
+    if backend_functions.login(request.form["username"], request.form["password"],request.form["ip"]):
     a = AD.ApiLDAP()
-    if a.authenticate("uk\\"+ request.form["username"], request.form["password"]):
+    if a.authenticate("DOMAIN_OF_AD\\"+ request.form["username"], request.form["password"]):
 
         #### Login #####
         session["auth"] = True
