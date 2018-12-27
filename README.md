@@ -18,4 +18,6 @@ $ python app.py
 
 Open the browser on next url --> http://127.0.0.1:5000/
 
+Main Page below:
+
 https://www.dropbox.com/s/1b8ec39pyojdoue/Screenshot%202018-12-27%20at%2016.41.25.png?dl=0
